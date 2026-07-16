@@ -126,7 +126,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <div class="hero">
     <h1>Biotech Research Intelligence</h1>
-    <p>Search any biotech topic and get real-time papers from PubMed plus an AI-generated briefing — state of the field, trending sub-topics, and commercial whitespace.</p>
+    <p>Search any biotech topic and get real-time papers from PubMed plus an AI-generated founder briefing — state of the field, trending sub-topics, and commercial whitespace.</p>
     <div class="hero-built">
       Built by <a href="https://linkedin.com/in/arya-bhure-601404269" target="_blank">Arya Bhure</a> · Biomedical Engineering, UT Dallas · Co-author, IL-6 electrochemical biosensing paper (Cells, MDPI)
     </div>
@@ -197,15 +197,15 @@ function hideStatus() { document.getElementById('status').style.display = 'none'
 
 async function fetchPubMed(query) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 7000);
+  const timeout = setTimeout(() => controller.abort(), 15000);
   try {
-    const url = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=${encodeURIComponent(query)}&retmax=6&sort=date&retmode=json&datetype=pdat&reldate=365`;
+    const url = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=${encodeURIComponent(query)}&retmax=6&sort=date&retmode=json&datetype=pdat&reldate=365&api_key=82afd4d2439123bd0835ce0c680362ac2708`;
     const r = await fetch(url, { signal: controller.signal });
     clearTimeout(timeout);
     const d = await r.json();
     const ids = d.esearchresult?.idlist || [];
     if (!ids.length) return null;
-    const fe = await fetch(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${ids.join(',')}&retmode=json&rettype=abstract`, { signal: controller.signal });
+    const fe = await fetch(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${ids.join(',')}&retmode=json&rettype=abstract&api_key=82afd4d2439123bd0835ce0c680362ac2708`, { signal: controller.signal });
     const fd = await fe.json();
     const arts = fd.PubmedArticleSet?.PubmedArticle || [];
     const results = arts.map(a => {
@@ -284,7 +284,7 @@ async function run() {
   let html = '';
 
   if (usedMock) {
-    html += `<div class="warn-banner">⚠ Could not reach PubMed from this environment — showing curated demo data. On a deployed server this will pull live papers.</div>`;
+    html += `<div class="warn-banner">⚠ PubMed is taking too long to respond — showing curated demo data. Try searching again in a moment for live results.</div>`;
   }
 
   html += `<div class="brief">
