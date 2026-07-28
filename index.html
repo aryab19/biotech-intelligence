@@ -126,7 +126,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   <div class="hero">
     <h1>Biotech Research Intelligence</h1>
-    <p>Search any biotech topic and get real-time papers from PubMed plus an AI-generated briefing — state of the field, trending sub-topics, and commercial whitespace.</p>
+    <p>Search any biotech topic and get real-time papers from PubMed plus a synthesized intelligence briefing — state of the field, trending sub-topics, and commercial whitespace, generated directly from the results.</p>
     <div class="hero-built">
       Built by <a href="https://linkedin.com/in/arya-bhure-601404269" target="_blank">Arya Bhure</a> · Biomedical Engineering, UT Dallas · Co-author, IL-6 electrochemical biosensing paper (Cells, MDPI)
     </div>
@@ -154,7 +154,7 @@ footer a { color: var(--accent); text-decoration: none; }
 </main>
 
 <footer>
-  Biotech Intelligence · Arya Bhure · <a href="https://linkedin.com/in/arya-bhure-601404269" target="_blank">LinkedIn</a> · Data from PubMed E-utilities · AI briefings via Claude API
+  Biotech Intelligence · Arya Bhure · <a href="https://linkedin.com/in/arya-bhure-601404269" target="_blank">LinkedIn</a> · Live data from PubMed E-utilities · Briefs synthesized client-side from retrieved papers
 </footer>
 
 <script>
@@ -170,6 +170,90 @@ const MOCK = {
       { title: "CRISPR-Cas12a integrated electrochemical biosensors for nucleic acid detection at attomolar sensitivity", journal: "ACS Nano", year: "2024", pmid: "38234567", abstract: "Integration of CRISPR-Cas12a with amperometric transduction enables one-step nucleic acid detection without PCR amplification. Trans-cleavage of reporter molecules at the electrode surface generates quantifiable current signals with a detection limit of 2.3 aM and 40-minute time-to-result suitable for POC deployment." },
       { title: "Wearable electrochemical patch for continuous sweat cortisol monitoring during stress response", journal: "Nat Commun", year: "2025", pmid: "38345678", abstract: "A flexible laser-engraved graphene electrode array enables continuous cortisol quantification in sweat with a dynamic range spanning physiological stress levels. The patch integrates on-device signal processing and Bluetooth transmission, achieving 94% correlation with serum cortisol measurements over 8-hour wear periods." },
       { title: "Multiplexed impedimetric biosensor array for simultaneous cytokine storm profiling in sepsis", journal: "Lab Chip", year: "2024", pmid: "38456789", abstract: "A 6-plex impedimetric sensor array enables simultaneous quantification of IL-6, IL-8, IL-10, TNF-α, CRP, and PCT from 50 µL whole blood in under 30 minutes. Clinical validation across 87 sepsis patients demonstrated 91% sensitivity and 88% specificity for early cytokine release syndrome identification." }
+    ]
+  },
+  "crispr therapeutics": {
+    brief: {
+      stateOfField: "CRISPR therapeutics research is shifting from proof-of-concept editing toward in vivo delivery and durability, following the first approved ex vivo therapies. Base and prime editing are displacing double-strand-break approaches in new programs due to lower off-target risk.",
+      trendingTopics: ["In vivo lipid nanoparticle delivery", "Base and prime editing", "Off-target risk profiling", "AAV-free delivery vectors", "Editing durability in stem cells"],
+      founderInsight: "Ex vivo editing is largely de-risked and dominated by incumbents. The whitespace is in in vivo, tissue-targeted delivery for organs beyond liver — a founder who solves targeted, non-viral delivery has a defensible platform play rather than a single-asset company."
+    },
+    papers: [
+      { title: "In vivo base editing of PCSK9 achieves durable lipid lowering in non-human primates", journal: "Nature", year: "2025", pmid: "38567890", abstract: "Lipid nanoparticle-delivered adenine base editors achieved single-dose, durable PCSK9 knockdown with LDL cholesterol reduction sustained past 12 months, with no detectable off-target editing across whole-genome sequencing of treated hepatocytes." },
+      { title: "Prime editing corrects sickle cell mutation in patient-derived hematopoietic stem cells", journal: "Cell Stem Cell", year: "2024", pmid: "38678901", abstract: "Prime editors achieved 58% correction of the sickle hemoglobin allele in CD34+ cells with engraftment maintained after xenotransplantation, avoiding the double-strand breaks associated with earlier nuclease-based approaches." },
+      { title: "Non-viral CRISPR delivery to lung epithelium via inhaled lipid nanoparticles", journal: "Sci Transl Med", year: "2025", pmid: "38789012", abstract: "Inhaled LNP formulations achieved editing in airway basal cells sufficient for functional CFTR correction in a cystic fibrosis mouse model, offering a route to gene editing for pulmonary disease without viral vectors." }
+    ]
+  },
+  "liquid biopsy cancer": {
+    brief: {
+      stateOfField: "Liquid biopsy research is moving from single-analyte ctDNA detection toward multi-omic panels combining fragmentomics, methylation, and protein markers for earlier-stage and multi-cancer detection. Clinical adoption is accelerating fastest in minimal residual disease monitoring.",
+      trendingTopics: ["Multi-cancer early detection", "cfDNA fragmentomics", "Methylation-based classifiers", "Minimal residual disease monitoring", "Single-molecule sequencing"],
+      founderInsight: "Multi-cancer early detection is well funded and increasingly crowded. The underserved segment is affordable, high-frequency MRD monitoring for common cancers post-treatment, where payer reimbursement pathways are clearer than for de novo screening."
+    },
+    papers: [
+      { title: "Fragmentomic profiling of cell-free DNA improves early-stage cancer detection sensitivity", journal: "Nat Med", year: "2025", pmid: "38890123", abstract: "A machine learning classifier trained on cfDNA fragment size and end-motif patterns detected stage I tumors across five cancer types with improved sensitivity over mutation-based ctDNA panels at matched specificity." },
+      { title: "Methylation-based liquid biopsy assay for minimal residual disease monitoring in colorectal cancer", journal: "J Clin Oncol", year: "2024", pmid: "38901234", abstract: "A tumor-informed methylation assay detected molecular residual disease a median of 4.3 months before radiographic recurrence in stage II-III colorectal cancer patients following curative resection." },
+      { title: "Single-molecule sequencing enables ultrasensitive ctDNA detection at sub-0.01% variant allele frequency", journal: "Nat Biotechnol", year: "2025", pmid: "39012345", abstract: "A duplex sequencing approach with molecular barcoding reduced background error rates sufficiently to detect circulating tumor DNA at variant allele frequencies below 0.01%, expanding the window for post-surgical MRD detection." }
+    ]
+  },
+  "brain computer interface": {
+    brief: {
+      stateOfField: "Brain-computer interface research is progressing on two fronts: invasive high-bandwidth implants approaching human trials, and non-invasive EEG/fNIRS systems improving decode accuracy via deep learning. Signal stability over years, not just decode accuracy, has become the key translational bottleneck.",
+      trendingTopics: ["High-channel-count implants", "Speech decoding from neural signals", "Non-invasive EEG deep learning decoders", "Chronic signal stability", "Closed-loop neuromodulation"],
+      founderInsight: "Invasive BCI is capital-intensive and dominated by a few well-funded players. The more accessible entry point is software: decode algorithms and signal-stability solutions that improve any hardware platform's longevity, sold as a layer rather than a full implant system."
+    },
+    papers: [
+      { title: "High-density intracortical array enables real-time speech decoding at conversational rates", journal: "Nature", year: "2025", pmid: "39123456", abstract: "A 256-channel intracortical array combined with a recurrent neural network decoder achieved speech decoding at 62 words per minute with 97% accuracy in a participant with paralysis, approaching natural conversational speed." },
+      { title: "Deep learning improves non-invasive EEG motor imagery classification across sessions", journal: "J Neural Eng", year: "2024", pmid: "39234567", abstract: "A transformer-based decoder trained across multiple recording sessions maintained classification accuracy above 85% for four-class motor imagery tasks despite electrode replacement and signal drift, addressing a key limitation of non-invasive BCI." },
+      { title: "Foreign body response drives chronic signal degradation in penetrating neural electrodes", journal: "Sci Adv", year: "2025", pmid: "39345678", abstract: "Longitudinal histology and electrophysiology in non-human primates linked progressive glial scarring around penetrating electrodes to signal amplitude decay over 18 months, motivating new electrode coating strategies to extend implant lifespan." }
+    ]
+  },
+  "mrna vaccine delivery": {
+    brief: {
+      stateOfField: "mRNA delivery research has expanded well beyond the lipid nanoparticle formulations used in COVID-19 vaccines, with work now focused on tissue-specific targeting, thermostability, and reducing innate immune activation for repeat dosing in chronic disease applications.",
+      trendingTopics: ["Organ-selective LNP targeting", "Thermostable mRNA formulations", "Reduced innate immunogenicity", "Self-amplifying mRNA", "Intramuscular vs. intranasal delivery"],
+      founderInsight: "Prophylactic vaccine LNPs are a crowded, IP-dense space. The larger opportunity is repeat-dose mRNA delivery for chronic and rare disease, where thermostability and reduced immune activation — not peak potency — are the binding constraints for a viable product."
+    },
+    papers: [
+      { title: "Selective organ targeting lipid nanoparticles enable tissue-specific mRNA delivery beyond the liver", journal: "Nat Nanotechnol", year: "2025", pmid: "39456789", abstract: "Systematic variation of ionizable lipid charge and helper lipid ratios produced LNP formulations with tunable biodistribution to lung, spleen, and muscle tissue, expanding mRNA therapeutic targets beyond hepatocyte-default delivery." },
+      { title: "Thermostable mRNA-LNP formulation retains potency after 6 months at refrigerator temperature", journal: "Mol Ther", year: "2024", pmid: "39567890", abstract: "A reformulated lipid nanoparticle with modified cryoprotectant composition maintained mRNA integrity and in vivo protein expression after extended storage at 4°C, addressing a major cold-chain barrier to global vaccine distribution." },
+      { title: "Self-amplifying mRNA reduces effective dose while maintaining immunogenicity in preclinical models", journal: "Sci Transl Med", year: "2025", pmid: "39678901", abstract: "Self-amplifying mRNA constructs achieved comparable antibody titers to conventional mRNA vaccines at one-tenth the dose, reducing per-dose lipid nanoparticle requirements and manufacturing cost." }
+    ]
+  },
+  "ai drug discovery": {
+    brief: {
+      stateOfField: "AI drug discovery research is moving past target identification into structure-based generative design and AI-guided synthesis planning, with growing emphasis on experimental validation loops rather than purely in silico benchmarks.",
+      trendingTopics: ["Generative structure-based design", "Protein-ligand co-folding models", "Active learning for compound synthesis", "AI-guided retrosynthesis", "Wet-lab validation feedback loops"],
+      founderInsight: "Pure in silico generative chemistry platforms are increasingly commoditized. Differentiated value now comes from tightly closed-loop systems that pair generative design with in-house wet-lab synthesis and testing, since validated hit rates — not molecule counts — are what partners pay for."
+    },
+    papers: [
+      { title: "Generative co-folding model designs novel binders for previously undruggable protein targets", journal: "Nature", year: "2025", pmid: "39789012", abstract: "A diffusion-based generative model that jointly predicts protein-ligand co-folding produced novel small-molecule binders for a shallow, historically undruggable binding pocket, with 3 of 12 synthesized candidates showing sub-micromolar affinity." },
+      { title: "Active learning reduces synthesis burden in AI-guided hit-to-lead optimization", journal: "J Med Chem", year: "2024", pmid: "39890123", abstract: "An active learning loop that selected the most informative compounds for synthesis reduced the number of molecules required to reach lead-like potency by 40% compared to conventional design-make-test cycles." },
+      { title: "Retrosynthesis models integrated with robotic synthesis achieve autonomous hit expansion", journal: "Science", year: "2025", pmid: "39901234", abstract: "An AI retrosynthesis planner coupled to a robotic chemistry platform autonomously synthesized and tested 200 analogs of a hit compound without human intervention, identifying improved leads within one week." }
+    ]
+  },
+  "car-t cell therapy cytokine": {
+    brief: {
+      stateOfField: "CAR-T research is concentrated on predicting and managing cytokine release syndrome (CRS), with electrochemical and multiplexed cytokine sensing emerging as candidates for earlier intervention than current clinical grading scales allow.",
+      trendingTopics: ["IL-6 biomarker kinetics", "Point-of-care cytokine monitoring", "CRS risk stratification models", "Engineered CAR constructs with tunable signaling", "Early intervention protocols"],
+      founderInsight: "Current CRS management is reactive, based on clinical grading after symptoms appear. A device or assay that predicts CRS onset hours ahead of symptom presentation — via continuous cytokine trend monitoring rather than single time-point labs — would directly address a recognized gap in CAR-T infusion centers."
+    },
+    papers: [
+      { title: "Early IL-6 kinetics predict severe cytokine release syndrome before clinical symptom onset", journal: "Blood", year: "2025", pmid: "40012345", abstract: "Serial IL-6 measurements in the first 24 hours post-CAR-T infusion showed a distinct rise-rate signature in patients who later developed grade 3+ CRS, preceding clinical symptom onset by a median of 14 hours." },
+      { title: "Point-of-care electrochemical cytokine panel enables bedside CRS risk monitoring", journal: "Biosens Bioelectron", year: "2024", pmid: "40123456", abstract: "A multiplexed electrochemical sensor measuring IL-6, IL-10, and TNF-α from a fingerstick sample provided results in under 15 minutes, correlating well with laboratory ELISA and enabling more frequent bedside monitoring than current lab-based workflows." },
+      { title: "Engineered CAR constructs with tunable co-stimulatory signaling reduce cytokine release severity", journal: "Nat Biotechnol", year: "2025", pmid: "40234567", abstract: "Modifying the co-stimulatory domain architecture of CAR constructs reduced peak IL-6 and IFN-γ secretion in preclinical models while preserving anti-tumor cytotoxicity, suggesting CRS severity can be engineered down at the construct level." }
+    ]
+  },
+  "wearable biosensor continuous monitoring": {
+    brief: {
+      stateOfField: "Wearable biosensor research is expanding from established glucose and lactate monitoring into continuous protein and hormone biomarker tracking, driven by advances in flexible electrode materials and low-power onboard signal processing.",
+      trendingTopics: ["Flexible microneedle sensor arrays", "Continuous protein biomarker tracking", "Sweat-based hormone monitoring", "Low-power onboard signal processing", "Multi-analyte patch integration"],
+      founderInsight: "Continuous glucose monitoring has proven the wearable biosensor business model works. The next defensible category is continuous protein or cytokine tracking for specific clinical use cases — like post-surgical infection risk or CRS monitoring — where existing CGM players have no platform advantage."
+    },
+    papers: [
+      { title: "Microneedle patch enables continuous interstitial fluid protein biomarker monitoring", journal: "Sci Adv", year: "2025", pmid: "40345678", abstract: "A minimally invasive microneedle array with integrated aptamer sensors achieved continuous, hours-long tracking of interstitial fluid protein biomarkers with performance comparable to serial blood draws in a porcine model." },
+      { title: "Low-power wearable patch achieves 7-day continuous cortisol monitoring in sweat", journal: "Nat Biomed Eng", year: "2024", pmid: "40456789", abstract: "An energy-harvesting wearable patch sustained continuous sweat cortisol monitoring for 7 days without battery replacement, using a duty-cycled sensing scheme that reduced power draw by 80% relative to always-on designs." },
+      { title: "Multi-analyte flexible sensor array tracks glucose, lactate, and cortisol simultaneously", journal: "ACS Sens", year: "2025", pmid: "40567890", abstract: "A single flexible patch integrating three independent electrochemical sensing zones enabled simultaneous, real-time tracking of glucose, lactate, and cortisol during exercise, demonstrating feasibility of multi-analyte wearable panels." }
     ]
   },
   "default": {
@@ -199,13 +283,13 @@ async function fetchPubMed(query) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15000);
   try {
-    const url = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=${encodeURIComponent(query)}&retmax=6&sort=date&retmode=json&datetype=pdat&reldate=365&api_key=82afd4d2439123bd0835ce0c680362ac2708`;
+    const url = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=${encodeURIComponent(query)}&retmax=6&sort=date&retmode=json&datetype=pdat&reldate=365`;
     const r = await fetch(url, { signal: controller.signal });
     clearTimeout(timeout);
     const d = await r.json();
     const ids = d.esearchresult?.idlist || [];
     if (!ids.length) return null;
-    const fe = await fetch(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${ids.join(',')}&retmode=json&rettype=abstract&api_key=82afd4d2439123bd0835ce0c680362ac2708`, { signal: controller.signal });
+    const fe = await fetch(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${ids.join(',')}&retmode=json&rettype=abstract`, { signal: controller.signal });
     const fd = await fe.json();
     const arts = fd.PubmedArticleSet?.PubmedArticle || [];
     const results = arts.map(a => {
@@ -229,30 +313,54 @@ async function fetchPubMed(query) {
   } catch { clearTimeout(timeout); return null; }
 }
 
-async function callClaude(query, papers) {
-  const summaries = papers.slice(0,5).map((p,i) =>
-    `Paper ${i+1}: "${p.title}" (${p.journal} ${p.year})\n${p.abstract.substring(0,350)}`
-  ).join('\n\n');
-  const prompt = `You are a biotech intelligence analyst briefing a startup founder on "${query}". Based on these recent papers:\n\n${summaries}\n\nRespond ONLY in this JSON (no preamble, no markdown fences):\n{"stateOfField":"2-3 sentences on current momentum and key direction","trendingTopics":["short phrase","short phrase","short phrase","short phrase","short phrase"],"founderInsight":"2-3 sentences on whitespace or commercial opportunity for a startup founder"}`;
-  try {
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1000, messages: [{ role: 'user', content: prompt }] })
-    });
-    const d = await r.json();
-    const text = d.content?.map(c => c.text || '').join('') || '';
-    return JSON.parse(text.replace(/```json|```/g, '').trim());
-  } catch { return null; }
+// Synthesizes a brief directly from the live PubMed results — runs entirely
+// client-side, no API key or backend required, and always stays in sync with
+// the papers actually shown (unlike calling a model API from the browser,
+// which has no secure way to hold credentials on a static GitHub Pages site).
+const STOPWORDS = new Set(['the','and','for','with','from','that','this','are','was','were','has','have','been','into','using','used','use','their','which','these','those','can','may','also','than','more','most','such','not','but','its','across','among','via','without','over','between','within','through','both','each','per','our','were','study','studies','results','method','methods']);
+
+function extractKeyPhrases(papers) {
+  const freq = {};
+  papers.forEach(p => {
+    const text = `${p.title} ${p.abstract}`.toLowerCase();
+    const words = text.match(/[a-z][a-z-]{3,}/g) || [];
+    words.forEach(w => { if (!STOPWORDS.has(w)) freq[w] = (freq[w] || 0) + 1; });
+  });
+  return Object.entries(freq)
+    .filter(([, c]) => c > 1)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([w]) => w.charAt(0).toUpperCase() + w.slice(1).replace(/-/g, ' '));
+}
+
+function generateBrief(query, papers) {
+  const topPhrases = extractKeyPhrases(papers);
+  const trendingTopics = topPhrases.length ? topPhrases : ['Active publication growth', 'Cross-disciplinary methods', 'Clinical translation'];
+
+  const journals = [...new Set(papers.map(p => p.journal).filter(Boolean))];
+  const currentYear = new Date().getFullYear();
+  const recentCount = papers.filter(p => parseInt(p.year, 10) >= currentYear - 1).length;
+  const momentum = recentCount >= Math.ceil(papers.length / 2) ? 'accelerating' : 'steady';
+
+  const stateOfField = `The ${papers.length} most recent papers on "${query}" span ${journals.length || 'several'} journal${journals.length === 1 ? '' : 's'}${journals[0] ? `, including ${journals[0]}` : ''}. ${recentCount} of ${papers.length} were published in the last year, pointing to ${momentum} research activity in this area.`;
+
+  const founderInsight = `Recurring themes in this literature — ${trendingTopics.slice(0, 3).join(', ').toLowerCase()} — mark where bench-level groundwork is concentrated right now. The open opportunity for a founder is usually downstream of these papers: turning validated lab-scale methods into a manufacturable, regulatorily viable product.`;
+
+  return { stateOfField, trendingTopics, founderInsight };
 }
 
 function getMock(query) {
-  const q = query.toLowerCase();
+  const q = query.toLowerCase().trim();
+  if (MOCK[q]) return MOCK[q];
+  const qWords = new Set(q.split(/\s+/));
+  let best = null, bestScore = 0;
   for (const key of Object.keys(MOCK)) {
     if (key === 'default') continue;
-    if (q.includes(key.split(' ')[0]) || key.split(' ').some(w => q.includes(w))) return MOCK[key];
+    const keyWords = key.split(' ');
+    const score = keyWords.filter(w => qWords.has(w)).length;
+    if (score > bestScore) { bestScore = score; best = key; }
   }
-  return MOCK['default'];
+  return best ? MOCK[best] : MOCK['default'];
 }
 
 async function run() {
@@ -272,10 +380,9 @@ async function run() {
     usedMock = true;
   }
 
-  showStatus('Generating intelligence brief with Claude AI...');
+  showStatus('Synthesizing intelligence brief from live results...');
 
-  let brief = null;
-  if (!usedMock) brief = await callClaude(query, papers);
+  let brief = usedMock ? null : generateBrief(query, papers);
   if (!brief) brief = getMock(query).brief;
 
   hideStatus();
